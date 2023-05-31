@@ -12,4 +12,10 @@ export class AdicionarPensamentoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  pensamento = {
+    conteudo: '',
+    autoria: '',
+    modelo: 'modelo1'
+  }
+
 }
