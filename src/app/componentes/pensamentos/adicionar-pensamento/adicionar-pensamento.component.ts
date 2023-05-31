@@ -18,4 +18,10 @@ export class AdicionarPensamentoComponent implements OnInit {
     modelo: 'modelo1'
   }
 
+  adicionarPensamento() {
+  }
+
+  cancelar() {
+  }
+
 }
