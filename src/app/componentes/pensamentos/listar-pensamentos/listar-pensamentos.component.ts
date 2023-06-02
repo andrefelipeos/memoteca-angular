@@ -12,6 +12,22 @@ export class ListarPensamentosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  pensamentos = [];
+  pensamentos = [
+    {
+      conteudo: 'My name is Rocket',
+      autoria: 'Rocket',
+      modelo: 'modelo1'
+    },
+    {
+      conteudo: 'No one comes to the Father except through me.',
+      autoria: 'Jesus',
+      modelo: 'modelo2'
+    },
+    {
+      conteudo: 'I love Angular',
+      autoria: 'André',
+      modelo: 'modelo3'
+    }
+  ];
 
 }
