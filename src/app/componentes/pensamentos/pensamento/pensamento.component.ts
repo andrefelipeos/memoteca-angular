@@ -13,9 +13,9 @@ export class PensamentoComponent implements OnInit {
   }
 
   @Input() pensamento = {
-    conteudo: String,
-    autoria: String,
-    modelo: String
+    conteudo: '',
+    autoria: '',
+    modelo: ''
   };
 
 }
