@@ -31,7 +31,4 @@ export class AdicionarPensamentoComponent implements OnInit {
     });
   }
 
-  cancelar() {
-  }
-
 }
