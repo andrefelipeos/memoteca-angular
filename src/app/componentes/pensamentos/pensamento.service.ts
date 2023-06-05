@@ -16,4 +16,8 @@ export class PensamentoService {
     return this.httpClient.get<Array<Pensamento>>(this.API)
   }
 
+  cadastrar(pensamento: Pensamento): Observable<Pensamento> {
+    return this.httpClient.post<Pensamento>(this.API, pensamento)
+  }
+
 }
