@@ -20,4 +20,9 @@ export class PensamentoService {
     return this.httpClient.post<Pensamento>(this.API, pensamento)
   }
 
+  excluir(identificador: number): Observable<Pensamento> {
+    const url = `${this.API}/${identificador}`
+    return this.httpClient.delete<Pensamento>(url)
+  }
+
 }
