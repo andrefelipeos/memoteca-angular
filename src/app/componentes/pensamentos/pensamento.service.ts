@@ -30,4 +30,9 @@ export class PensamentoService {
     return this.httpClient.put<Pensamento>(url, pensamento);
   }
 
+  buscarPorId(identificador: number): Observable<Pensamento> {
+    const url = `${this.API}/${identificador}`
+    return this.httpClient.get<Pensamento>(url)
+  }
+
 }
