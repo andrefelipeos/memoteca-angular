@@ -25,4 +25,9 @@ export class PensamentoService {
     return this.httpClient.delete<Pensamento>(url)
   }
 
+  editar(pensamento: Pensamento): Observable<Pensamento> {
+    const url = `${this.API}/${pensamento.id}`
+    return this.httpClient.put<Pensamento>(url, pensamento);
+  }
+
 }
