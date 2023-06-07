@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Pensamento } from '../pensamento';
 import { PensamentoService } from '../pensamento.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-adicionar-pensamento',
@@ -10,23 +10,24 @@ import { Router } from '@angular/router';
 })
 export class AdicionarPensamentoComponent implements OnInit {
 
+  formulario!: FormGroup
+
   constructor(
     private pensamentoService: PensamentoService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-  }
-
-  pensamento: Pensamento = {
-    id: 0,
-    conteudo: '',
-    autoria: '',
-    modelo: 'modelo1'
+    this.formulario = this.formBuilder.group({
+      conteudo: [''],
+      autoria: [''],
+      modelo: ['modelo1']
+    })
   }
 
   adicionarPensamento() {
-    this.pensamentoService.cadastrar(this.pensamento).subscribe(() => {
+    this.pensamentoService.cadastrar(this.formulario.value).subscribe(() => {
       this.router.navigate(['mural-de-pensamentos']);
     });
   }
