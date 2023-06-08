@@ -28,8 +28,4 @@ export class ExcluirPensamentoComponent implements OnInit {
     })
   }
 
-  cancelar() {
-    this.router.navigate(['/mural-de-pensamentos'])
-  }
-
 }
