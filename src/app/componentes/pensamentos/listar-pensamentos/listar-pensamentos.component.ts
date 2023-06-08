@@ -11,6 +11,7 @@ export class ListarPensamentosComponent implements OnInit {
 
   paginaAtual: number = 1
   pensamentos: Array<Pensamento> = [];
+  haMaisPensamentos: boolean = true
 
   constructor(private pensamentoService: PensamentoService) { }
 
@@ -18,6 +19,15 @@ export class ListarPensamentosComponent implements OnInit {
     this.pensamentoService.listar(this.paginaAtual).subscribe(pensamentosDaApi => {
       this.pensamentos = pensamentosDaApi
     });
+  }
+
+  carregarMaisPensamentos() {
+    this.pensamentoService.listar(++this.paginaAtual).subscribe(listaPensamentos => {
+      this.pensamentos.push(...listaPensamentos)
+      if (!listaPensamentos.length) {
+        this.haMaisPensamentos = false
+      }
+    })
   }
 
 }
