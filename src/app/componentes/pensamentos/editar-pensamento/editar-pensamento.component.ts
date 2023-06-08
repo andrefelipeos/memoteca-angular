@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pensamento } from '../pensamento';
 import { PensamentoService } from '../pensamento.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-pensamento',
@@ -27,17 +27,31 @@ export class EditarPensamentoComponent implements OnInit {
       .subscribe(pensamentoParaEditar => {
         this.formulario = this.formBuilder.group({
           id: [pensamentoParaEditar.id],
-          conteudo: [pensamentoParaEditar.conteudo],
-          autoria: [pensamentoParaEditar.autoria],
+          conteudo: [
+            pensamentoParaEditar.conteudo,
+            Validators.compose([
+              Validators.required,
+              Validators.minLength(20)
+            ])
+          ],
+          autoria: [
+            pensamentoParaEditar.autoria,
+            Validators.compose([
+              Validators.required,
+              Validators.minLength(2)
+            ])
+          ],
           modelo: [pensamentoParaEditar.modelo]
         })
       })
   }
 
   editarPensamento() {
-    this.pensamentoService.editar(this.formulario.value).subscribe(() => {
-      this.router.navigate(['/mural-de-pensamentos'])
-    })
+    if (this.formulario.valid) {
+      this.pensamentoService.editar(this.formulario.value).subscribe(() => {
+        this.router.navigate(['/mural-de-pensamentos'])
+      })
+    }
   }
 
 }
