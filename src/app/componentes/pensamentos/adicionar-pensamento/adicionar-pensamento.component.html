@@ -107,7 +107,12 @@
             </div>
         </div>
         <div class="acoes">
-            <button (click)="adicionarPensamento()" class="botao">Salvar</button>
+            <button (click)="adicionarPensamento()"
+                [disabled]="!formulario.valid"
+                [ngClass]="formulario.valid ? 'botao' : 'botao__desabilitado'"
+            >
+                Salvar
+            </button>
             <button class="botao" routerLink="/mural-de-pensamentos">Cancelar</button>
         </div>
     </form>
