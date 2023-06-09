@@ -28,4 +28,12 @@ export class PensamentoComponent implements OnInit {
     return 'pensamento-p';
   }
 
+  mudarIconeFavorito(): string {
+    if (this.pensamento.favorito) {
+      return 'ativo'
+    } else {
+      return 'inativo'
+    }
+  }
+
 }
