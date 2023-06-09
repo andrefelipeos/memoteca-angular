@@ -22,9 +22,9 @@ export class ListarPensamentosComponent implements OnInit {
   }
 
   carregarMaisPensamentos() {
-    this.pensamentoService.listar(++this.paginaAtual).subscribe(listaPensamentos => {
-      this.pensamentos.push(...listaPensamentos)
-      if (!listaPensamentos.length) {
+    this.pensamentoService.listar(++this.paginaAtual).subscribe(novosPensamentos => {
+      this.pensamentos.push(...novosPensamentos)
+      if (!novosPensamentos.length) {
         this.haMaisPensamentos = false
       }
     })
