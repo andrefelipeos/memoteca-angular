@@ -17,7 +17,8 @@ export class PensamentoComponent implements OnInit {
     id: 0,
     conteudo: '',
     autoria: '',
-    modelo: ''
+    modelo: '',
+    favorito: false
   };
 
   larguraPensamento(): string {

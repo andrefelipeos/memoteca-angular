@@ -34,7 +34,8 @@ export class AdicionarPensamentoComponent implements OnInit {
           Validators.minLength(2)
         ])
       ],
-      modelo: ['modelo1']
+      modelo: ['modelo1'],
+      favorito: [false]
     })
   }
 
