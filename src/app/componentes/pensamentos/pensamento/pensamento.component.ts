@@ -9,11 +9,6 @@ import { PensamentoService } from '../pensamento.service';
 })
 export class PensamentoComponent implements OnInit {
 
-  constructor(private pensamentoService: PensamentoService) { }
-
-  ngOnInit(): void {
-  }
-
   @Input() pensamento: Pensamento = {
     id: 0,
     conteudo: '',
@@ -21,6 +16,11 @@ export class PensamentoComponent implements OnInit {
     modelo: '',
     favorito: false
   };
+
+  constructor(private pensamentoService: PensamentoService) { }
+
+  ngOnInit(): void {
+  }
 
   larguraPensamento(): string {
     if (this.pensamento.conteudo.length >= 256) {
