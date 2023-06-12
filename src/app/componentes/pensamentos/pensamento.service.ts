@@ -12,11 +12,14 @@ export class PensamentoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listar(pagina: number, filtro: string): Observable<Array<Pensamento>> {
+  listar(pagina: number, filtro: string, somenteFavoritos: boolean): Observable<Array<Pensamento>> {
     const itensPorPagina = 12
     let parametros = new HttpParams().set('_page', pagina).set('_limit', itensPorPagina)
     if (filtro.trim().length > 2) {
       parametros = parametros.set('q', filtro)
+    }
+    if (somenteFavoritos) {
+      parametros = parametros.set('favorito', true)
     }
     return this.httpClient.get<Array<Pensamento>>(this.API, { params: parametros })
   }
