@@ -9,6 +9,8 @@ import { PensamentoService } from '../pensamento.service';
 })
 export class PensamentoComponent implements OnInit {
 
+  @Input() listaDeFavoritos: Array<Pensamento> = []
+
   @Input() pensamento: Pensamento = {
     id: 0,
     conteudo: '',
@@ -38,7 +40,11 @@ export class PensamentoComponent implements OnInit {
   }
 
   mudarPropriedadeFavorito() {
-    this.pensamentoService.mudarPropriedadeFavorito(this.pensamento).subscribe()
+    this.pensamentoService
+      .mudarPropriedadeFavorito(this.pensamento)
+      .subscribe(() => {
+        this.listaDeFavoritos.splice(this.listaDeFavoritos.indexOf(this.pensamento), 1)
+      })
   }
 
 }
