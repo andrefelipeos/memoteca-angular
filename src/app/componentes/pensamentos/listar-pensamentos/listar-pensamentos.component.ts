@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ListarPensamentosComponent implements OnInit {
 
+  titulo: string = 'Meu Mural'
   paginaAtual: number = 1
   pensamentos: Array<Pensamento> = [];
   haMaisPensamentos: boolean = true
@@ -52,6 +53,7 @@ export class ListarPensamentosComponent implements OnInit {
   }
 
   listarFavoritos() {
+    this.titulo = 'Meus Favoritos'
     this.paginaAtual = 1
     this.haMaisPensamentos = true
     this.listarSomenteFavoritos = true
